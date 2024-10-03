@@ -4,12 +4,12 @@ from PIL import Image
 class Wallpaper_generator:
     """Class that generates the final wallpaper
     """
-    def __init__(input_img_path: str, output_img_path: str, output_res:(int,int), shape:str = 'Hexagon', shape_size:int):
+    def __init__(input_img_path: str, output_img_path: str = 'output.svg', output_res:(int,int), shape:str = 'Hexagon', shape_size:int):
         """Open the input image and assign all the required arguments for wallpaper generation as class attributes
 
         Args:
             input_img_path (str): path of the input image
-            output_img_path (str): path of the output image
+            output_img_path (str): path of the output image. Defaults to 'output.svg'.
             output_res (int,int): two positive integers for the output image generation (must be > shape_size)
             shape_size (int): Sampling shape size
             shape (str, optional): sampling shape in 'Triangle', 'Hexagon'. Defaults to 'Hexagon'.
