@@ -11,6 +11,7 @@ pytest = "^8.3.3"
 pylint = "^3.3.1"
 coverage = "^7.6.1"
 pillow = "^10.4.0"
+numpy = "^2.1.1"
 
 
 [build-system]
