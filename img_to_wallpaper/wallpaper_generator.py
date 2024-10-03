@@ -5,7 +5,7 @@ class Wallpaper_generator:
     """Class that generates the final wallpaper
     """
     def __init__(input_img_path: str, output_img_path: str, output_res:(int,int), shape:str = 'Hexagon', shape_size:int):
-        """Contains all the required arguments for wallpaper generation and open the input image
+        """Open the input image and assign all the required arguments for wallpaper generation as class attributes
 
         Args:
             input_img_path (str): path of the input image
