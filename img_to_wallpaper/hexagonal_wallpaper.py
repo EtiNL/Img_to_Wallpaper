@@ -30,8 +30,20 @@ def hexagonal_grid(img: np.array, size: int) -> np.array:
 
     return np.array(hexagonal_grid)
 
-def get_medium_color(center_point,size, img):
-    #medium color in the inner circle of the hexagone of center: center_point and size: size
-    
+def sample_color(center_point, size, img):
+    #medium color in the inner square of the hexagone of center: center_point and size: size
+    color_samples = []
+    img_width = img.shape[1]
+    img_heigth = img.shape[0]
+    for i in range(-size//2, size//2):
+        for j in range(-size//2, size//2):
+            sample_x = center_point[0] + i
+            sample_y = center_point[1] + j
 
+            if sample_x>=0 and sample_x<img_heigth and sample_y>=0 and sample_y<img_width:
+                color_samples.append(img[sample_x, sample_y])
+    
+    mean_color_hexagon = np.mean(np.array(color_samples), axis = 0)
+
+    return mean_color_hexagon
 
