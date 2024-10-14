@@ -1,10 +1,11 @@
 import os
 from PIL import Image
+from hexagonal_wallpaper import hexagonal_grid, sample_color
 
 class Wallpaper_generator:
     """Class that generates the final wallpaper
     """
-    def __init__(input_img_path: str, output_img_path: str = 'output.svg', output_res:(int,int), shape:str = 'Hexagon', shape_size:int):
+    def __init__(input_img_path: str, output_img_path: str = 'output.svg', shape:str = 'Hexagon', shape_size:int):
         """Open the input image and assign all the required arguments for wallpaper generation as class attributes
 
         Args:
@@ -24,11 +25,28 @@ class Wallpaper_generator:
 
         self.output_img_path = output_img_path
 
-        assert output_res[0] > shape_size and output_res[1] > shape_size 
-        self.output_res = output_res
-
         assert shape in ['Hexagon', 'Triangle'], 'shape must either be Hexagon or Triangle'
         self.shape = shape
 
         assert shape_size > 0, 'Shape must be > 0'
         self.shape_size = shape_size
+
+    def generate_grid(self):
+        if self.shape = 'Hexagon':
+            self.grid = hexagonal_grid(self.input_img)
+
+    def generate_grid_colors(self):
+        self.grid_colors = np.array([sample_color(grid_point, self.size, self.input_img) for grid_point in self.grid])
+
+    def generate_wallpaper(self):
+        self.generate_grid()
+        self.generate_grid_colors()
+
+        return self.grid, self.grid_colors
+
+
+if __name__ == '__main__':
+    w =  Wallpaper_generator('../screenshot.jpg', output_img_path: str = 'output.svg', 10)
+    grid, grid_colors = w.generate_wallpaper()
+    print(grid.shape)
+    print(grid_colors.shape)
